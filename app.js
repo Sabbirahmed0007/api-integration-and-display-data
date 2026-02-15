@@ -1,10 +1,13 @@
-const loadTodos = () => {
-  fetch("https://jsonplaceholder.typicode.com/todos/")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      showTodos(data);
-    });
+const loadTodos = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
+  const data = await res.json();
+  showTodos(data);
+
+  // .then((res) => res.json())
+  // .then((data) => {
+  //   console.log(data);
+  //   showTodos(data);
+  // });
 };
 
 const showTodos = (todos) => {

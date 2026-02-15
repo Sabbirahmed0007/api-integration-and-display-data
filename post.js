@@ -1,13 +1,16 @@
-const loadPosts = () => {
-  fetch("https://jsonplaceholder.typicode.com/posts/")
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      ShowPosts(data);
-    });
+const loadPosts = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/");
+  const data = await res.json();
+  showPosts(data);
+  //   fetch("https://jsonplaceholder.typicode.com/posts/")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       ShowPosts(data);
+  //     });
 };
 
-const ShowPosts = (posts) => {
+const showPosts = (posts) => {
   const showPosts = document.getElementById("showData");
   showPosts.innerHTML = "";
 
